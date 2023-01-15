@@ -1,32 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-
+import { Link, useNavigate } from "react-router-dom";
 
 
 export const Home = () => {
+	const [ isRetryVisible, setRetryVisible ] = useState(false)
 
-	//const {store, actions } = useContext(Context);
-	//const params = useParams();
+	const showRetryButton = () => {
+		setRetryVisible(true)
+	}
 
-	//let url = `https://private-bbbe9-blissrecruitmentapi.apiary-mock.com${params.uid}`;
-
-	//const healthStore = store.health.filter(char => char.url == url);
-	//useEffect(() => actions.health(url), []);
+	const navigate = useNavigate()
 
 	fetch("https://private-anon-6f63385faf-blissrecruitmentapi.apiary-mock.com/health")
 		.then(response => {
-			if (response.ok) {
-				console.log("Server is up and running. Response: ", response);
-				//should return the list screen 
+			if (response.ok == true) {
+				console.log("Server is up and running. Response: ", response)
+				navigate("/questions?filter=")
 				return response.json();
 			} else {
+				showRetryButton()
 				throw new Error("Server is down. Error: " + response.statusText);
-				//I should have a widget (retry action)
+
 			}
-		})
-		.then(data => {
-			//WHAT SHOULD I DO HERE? 
 		})
 		.catch(error => {
 			console.log(error);
@@ -34,8 +31,19 @@ export const Home = () => {
 
 	return (
 		<div>
-			<div class="loader"></div>
-			<div className="loading"><h2>Loading...</h2></div>
+			{!isRetryVisible &&
+				<div>
+					<div className="loader"></div>
+					<div className="loading"><h2>Loading...</h2></div>
+				</div>
+			}
+			<div>
+				{isRetryVisible &&
+					<Link to="/">
+						<button className="btn btn-primary widget" id="retry_button"> Retry Action... </button>
+					</Link>
+				}
+			</div>
 		</div>
 	);
 };

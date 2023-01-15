@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { List } from "./views/list";
+import { Questions } from "./views/questions";
 import { Retry } from "./views/retry";
 import injectContext from "./store/appContext";
 
@@ -23,7 +23,8 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/list" element={<List />} />
+						<Route path="/questions" element={<Questions />} />
+						<Route path="/questions?filter=:filter" element={<Questions />} />
 						<Route path="/Retry" element={<Retry />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
