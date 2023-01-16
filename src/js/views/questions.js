@@ -14,7 +14,7 @@ export const Questions = () => {
   const questionList = [
     {id: 1, question: "whatfgdfgdf"},
     {id: 2, question: "whatfgdfgdf"}
-  ]
+  ]a
 
   let searchTerm = ""
   const search = () => {
@@ -25,12 +25,7 @@ export const Questions = () => {
     searchTerm = event.target.value
   }
 
-  //const  = () => {
 
-  //     { id: "", question: "", image_url: "", thumb_url: "", question: "", question: "" },
-
-
-  //  }
   useEffect(() => {
     fetch("https://private-anon-68d0a01e45-blissrecruitmentapi.apiary-mock.com/questions?limit=10&offset=10&filter=" + filter)
     .then(response => {
