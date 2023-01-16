@@ -14,7 +14,7 @@ export const Questions = () => {
   const questionList = [
     {id: 1, question: "whatfgdfgdf"},
     {id: 2, question: "whatfgdfgdf"}
-  ]a
+  ]
 
   let searchTerm = ""
   const search = () => {
