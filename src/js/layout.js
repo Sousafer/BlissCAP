@@ -4,7 +4,6 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Questions } from "./views/questions";
-import { Retry } from "./views/retry";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -25,7 +24,6 @@ const Layout = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="/questions" element={<Questions />} />
 						<Route path="/questions?filter=:filter" element={<Questions />} />
-						<Route path="/Retry" element={<Retry />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

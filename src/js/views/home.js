@@ -40,7 +40,7 @@ export const Home = () => {
 			<div>
 				{isRetryVisible &&
 					<Link to="/">
-						<button className="btn btn-primary widget" id="retry_button"> Retry Action... </button>
+						<button className="btn btn-outline-light rounded-pill" id="retry_button"> Retry Action... </button>
 					</Link>
 				}
 			</div>
